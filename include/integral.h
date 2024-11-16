@@ -13,6 +13,11 @@ namespace xi_integral
     template <typename Func, typename T1, typename T2>
     inline long double definite_integral(Func&& f, T1 a, T2 b, int n = -1)
     {
+        static_assert(
+            std::is_arithmetic<T1>::value && std::is_arithmetic<T2>::value,
+            "Types for A and B must be both numerical"
+        );
+        
         if (n % 2 == 1)
         {
             std::cerr << "N must be even for definite integral!" << std::endl;
