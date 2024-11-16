@@ -3,13 +3,13 @@
 
 #include <cmath>
 #include "math_consts.h"
-#include <iostream>
 #include <type_traits>
+#include <limits>
 
 namespace xi_derivative
 {
     template <typename Func, typename T>
-    inline long double definite_derivative(Func&& f, T x, T h = -1)
+    inline long double definite_derivative(Func&& f, T x, long double h = -1)
     {
         /*
             Derivative calculated with Five-Point Stencil 
@@ -17,12 +17,12 @@ namespace xi_derivative
             to reduce potential error of h
         */
         static_assert(
-            std::disjunction_v<std::is_same<T, float>, std::is_same<T, double>>,
-            "Type must be either float or double for X and h"
+            std::is_arithmetic<T>::value,
+            "Type must be a numerical value"
         );
 
         if (h == -1) {
-            h = xi_math_consts::h * std::fabs(x); // or use sqrt(epsilon) * |x|
+            h = std::pow(std::numeric_limits<long double>::epsilon(), 0.5);
         }
 
         long double xl = static_cast<long double>(x);
@@ -39,32 +39,6 @@ namespace xi_derivative
 
         return D_extrapolated;
     }
-
-
-
-    // template <typename Func, typename T>
-    // inline long double definite_derivative(
-    //     Func&& f, 
-    //     T x, 
-    //     T h = -1)
-    // {
-    //     static_assert(
-    //         std::disjunction_v<std::is_same<T, float>, std::is_same<T, double>>,
-    //         "Type must be either float or double for X and h"
-    //     );
-
-    //     long double xl = static_cast<long double>(x);
-    //     long double hl = static_cast<long double>(h);
-
-    //     if (h == -1)
-    //     {
-    //         h = sqrt(xi_math_consts::epsilon) * std::fabs(x);
-    //         std::cout << std::endl << "h: " << h << std::endl;
-    //     }
-
-    //     // Five-point stencil formula for improved precision
-    //     return (-f(xl + 2 * hl) + 8 * f(xl + hl) - 8 * f(xl - hl) + f(xl - 2 * hl)) / (12 * hl);
-    // }
 }
 
 
