@@ -18,7 +18,7 @@ Five Stencil Formula:
 > f'(x) = -f(x+2h) + 8f(x-h) - 8f(x-h) + f(x-2h) / 12h
 
 Pseudocode for better understanding:
-- Take h = 1e-5, find f'(x) = A
+- Take h = 3.29272e-10 (about 3.3e-10), find f'(x) = A (given that x is an argument passed)
 - Half h, find new f'(x) = B
 - Answer = (16 * B - A) / 15;
 
