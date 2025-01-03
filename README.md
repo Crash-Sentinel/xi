@@ -1,4 +1,4 @@
-# XI
+# XI - Ξ
 <img width="19" alt="image" src="https://github.com/user-attachments/assets/a07cbc7a-3bb8-4041-b535-c471fc81cc4a">
 
 Calculus and Linear Algebra based C++ Library
