@@ -2,3 +2,4 @@
 #include "derivative.h"
 #include "integral.h"
 #include "array.h"
+#include "matrix.h"
