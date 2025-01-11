@@ -12,6 +12,7 @@ As to why I decided to create a Linear Algebra and Calculus Library, I didn't no
 ## Example Usage
 
 Using xi_integral and xi_derivative to calculate the respective area under the X squared curve from 0 to 2 and the derivative of the same function at x=2
+Similar Driver Program is in examples directory
 
 ```
 // Ensure correct file path
@@ -65,6 +66,8 @@ Pseudocode for better understanding:
 
 - Actually getting some Linear Algebra into here
 - Sprucing up the integral and derivative code to be both more diverse in their methods and more optimized
+- Fixing up matrix.h to be fully functional
+- Providing more value to array.h
 
 ### Mathematical Constants included:
 
